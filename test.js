@@ -39,16 +39,13 @@ test("One euro should be 1.07 dollars", function() {
 
 
 test("one thousand  should be 5 pound", function() {
-    // Importo la funcion desde app.js
+  
     const { fromYenToPound } = require('./app.js');
 
-    // Uso la función como debe ser usada
     const pound = fromYenToPound(1000);
 
     let valueInEuro = 1000 / 156.5; 
-    let expected = valueInEuro * 0.87
+    let expected = Math.floor(valueInEuro * 0.87)
 
-    // Hago mi comparación (la prueba)
-    expect(fromYenToPound(1000)).toBeCloseTo(expected, 2); 
+    expect(fromYenToPound(1000)).toBe(5); 
 })
-
